@@ -1,0 +1,1 @@
+const kBlueColor = 0xff0078FD;
