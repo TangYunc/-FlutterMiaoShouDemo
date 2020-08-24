@@ -51,7 +51,7 @@ class _MineBodyState extends State<MineBody> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: mineItem.replay.length,
+        itemCount: mineItem.replay.length + 1,
         itemBuilder: (BuildContext context, int index) {
           return MineListItem(mineItem.replay[index]);
     }

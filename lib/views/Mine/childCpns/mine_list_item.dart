@@ -12,9 +12,12 @@ class MineListItem extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               getIconWidget(),
-              getTitleWidget()
+              getTitleWidget(),
+              Flexible(fit: FlexFit.tight, child: SizedBox()),
+              getMoreIconWidget()
             ],
           ),
           getGapLineWidget()
@@ -34,6 +37,14 @@ class MineListItem extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16),
       child: Text(item.title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Color(0Xff333333)))
+    );
+  }
+
+  Widget getMoreIconWidget() {
+    return Container(
+//      alignment: Alignment.centerRight,
+        padding: EdgeInsets.only(right: 16),
+        child: Image.asset("assets/images/mine/icon_right_arrow.png", width: 7, height: 13),
     );
   }
 
