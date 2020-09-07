@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miaoshou_app/models/mine_model.dart';
+import 'package:miaoshou_app/views/Mine/childCpns/mine_list_headerItem.dart';
 import 'package:miaoshou_app/views/Mine/childCpns/mine_list_item.dart';
 
 class Mine extends StatelessWidget {
@@ -29,7 +30,7 @@ class _MineBodyState extends State<MineBody> {
     super.initState();
     Map<String, dynamic> commentData =
       {
-        'avartImgUrl':'assets/images/square_1.png',
+        'avartImgUrl':'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1561011314262&di=29253749380f34583bbcae1a614d6f6e&imgtype=0&src=http%3A%2F%2Fimg3.mukewang.com%2F5c18cf540001ac8206000338.jpg',
         'doctorName':'鸿运当头',
         'cellPhone':'18210038888',
         'replay':[
@@ -50,11 +51,19 @@ class _MineBodyState extends State<MineBody> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: mineItem.replay.length + 1,
-        itemBuilder: (BuildContext context, int index) {
-          return MineListItem(mineItem.replay[index]);
-    }
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          HeaderItem(mineItem),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: mineItem.replay.length,
+            itemBuilder: (BuildContext context, int index) {
+            return MineListItem(mineItem.replay[index]);
+          }
+          ),
+        ],
+      ),
     );
   }
 }
